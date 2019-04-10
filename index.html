@@ -27,21 +27,21 @@
                     </div>
                 </transition>
             </header>
-            <transition name="slide">
+           <!-- <transition name="slide">
                 <div class="weather__now" v-if="show_today">
-                    <div class="weather__now-text" id="now_name">Переменная облачность</div>
+                    <div class="weather__now-text" >Переменная облачность</div>
                     <div class="weather__now-block">
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" id="now_img" class="weather__now-image">
+                        <img src="image/SVG/rain.svg" class="weather__now-image">
                     </div>
-                    <div class="weather__now-temp" id="now_temp"><span class="weather__now-temp-grad">8</span><span class="weather__now-temp-C">&ordm;</span></div>
-                    <div class="weather__now-city" id="now_city">Казань</div>
+                    <div class="weather__now-temp"><span class="weather__now-temp-grad">8</span><span class="weather__now-temp-C">&ordm;</span></div>
+                    <div class="weather__now-city">Казань</div>
                 </div>
             </transition>
             <transition name="slide">
                 <div class="weather__now"  v-if="show_tom">
                     <div class="weather__now-text" >облачность</div>
                     <div class="weather__now-block">
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" id="now_img" class="weather__now-image">
+                        <img src="image/SVG/rain.svg" class="weather__now-image">
                     </div>
                     <div class="weather__now-temp"><span class="weather__now-temp-grad">9</span><span class="weather__now-temp-C">&ordm;</span></div>
                     <div class="weather__now-city">Казань</div>
@@ -51,28 +51,35 @@
                 <div class="weather__now"  v-if="show_dat">
                     <div class="weather__now-text">Переменная</div>
                     <div class="weather__now-block">
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" id="now_img" class="weather__now-image">
+                        <img src="image/SVG/rain.svg" class="weather__now-image">
                     </div>
                     <div class="weather__now-temp"><span class="weather__now-temp-grad">10</span><span class="weather__now-temp-C">&ordm;</span></div>
                     <div class="weather__now-city">Казань</div>
                 </div>
+            </transition> -->
+            <transition name="slide">
+                <div class="weather__now">
+                    
+                </div>
             </transition>
             <div class="weather__other" >
-                    <div class="weather_other-tom weather_other-choice" v-on:click="show_today = true; show_tom=false;show_dat=false" >
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" class="weather__other-img">
+                    <div class="weather_other-tom " v-bind:class="{ choice: show_today }" v-on:click="show_today = true; show_tom=false;show_dat=false" >
+                        <img src="image/SVG/rain.svg" class="weather__other-img">
                         <div class="weather_date weather_other-tom-date">8 апреля</div>
                     </div>
-                    <div class="weather_date weather_other-dat" v-on:click="show_tom = true;show_today=false;show_dat=false ">
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" class="weather__other-img">
+                    <div class="weather_date weather_other-dat" v-bind:class="{ choice: show_tom }" v-on:click="show_tom = true;show_today=false;show_dat=false ">
+                        <img src="image/SVG/rain.svg" class="weather__other-img">
                         <div class="weather_other-dat-date">9 апреля</div>
                     </div>
-                    <div class="weather_date weather_other-atdat" v-on:click="show_dat = true;show_today=false;show_tom=false ">
-                        <img src="image/SVG/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%205.svg" class="weather__other-img">
+                    <div class="weather_date weather_other-atdat" v-bind:class="{ choice: show_dat }"  v-on:click="show_dat = true;show_today=false;show_tom=false ">
+                        <img src="image/SVG/rain.svg" class="weather__other-img">
                         <div class="weather_other-atdat-date">10 апреля</div>                    
                     </div>
             </div>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        <script src="js/axios.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>
