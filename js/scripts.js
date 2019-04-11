@@ -1,12 +1,41 @@
-var app=new Vue({
+Vue.component('weather__list', {
+    props: ['text','morn','day','eve','night','img','show_param_name'],
+    template: ' \<transition  name="slide">\
+        \<div class="weather__now"  >\
+            \<div class="weather__now-text">{{ text }}</div>\
+            \<div class="weather__now-block">\
+                    \<img :src="img" class="weather__now-image">\
+            \</div>\
+            \<div class="weather__now-temp"><span class="weather__now-temp-grad">{{ day }}</span><span class="weather__now-temp-C">&ordm;</span></div>\
+            <div class="weather__now-city">Казань</div>\
+        \</div>\
+    </transition>\
+  ',
+})
+
+var app = new Vue({
 	el:"#app",
-	data:{
-        show_today:true,
-        show_tom:false,
-        show_dat:false,
-        weather_data:''
+    data(){
+        return {
+            show_today:true,
+            show_tom:false,
+            show_dat:false,
+            weather_data:'',
+            weather_list:[]
+         /*   weather_list:[
+                {
+                                id: 1,
+                                text: "1",
+                                morn: "2",  
+                                day: "3",
+                                eve: "4",
+                                night: "5",
+                                img: "image/SVG/rain.svg"  
+                }
+            ]  */
+        }
     },
-    mounted:function(){
+    created:function(){
         this.getWeather();
     },
     methods: {
@@ -16,6 +45,36 @@ var app=new Vue({
                 weather_data=response.data;
                 console.log(weather_data);
                 console.log((weather_data.list[0].temp.day-273).toFixed());
+                weather_list=[
+                          {
+                            id: 1,
+                            text: weather_data.list[0].weather[0].description,
+                            morn: weather_data.list[0].temp.morn,  
+                            day: weather_data.list[0].temp.day,
+                            eve: weather_data.list[0].temp.eve,
+                            night: weather_data.list[0].temp.night,
+                            show_param_name: "show_today" 
+                          },
+                          {
+                            id: 2,
+                            text: weather_data.list[1].weather[0].description,
+                            morn: weather_data.list[1].temp.morn,  
+                            day: weather_data.list[1].temp.day,
+                            eve: weather_data.list[1].temp.eve,
+                            night: weather_data.list[1].temp.night,
+                            show_param_name: "show_tom" 
+                          },
+                          {
+                            id: 3,
+                            text: weather_data.list[2].weather[0].description,
+                            morn: weather_data.list[2].temp.morn,  
+                            day: weather_data.list[2].temp.day,
+                            eve: weather_data.list[2].temp.eve,
+                            night: weather_data.list[2].temp.night,
+                            show_param_name: "show_dat" 
+                          }
+                    ]
+                    this.weather_list = weather_list;
             }).catch(
                 error => {
                     console.log(error);
@@ -25,19 +84,7 @@ var app=new Vue({
         },
         drawWeather: function(event){
             var now = new Date();
-/*            if(now.getHours()>5 && now.getHours()<12){
-                
-            } */
         }
     },
-    computed: {}
 });
-app.component('todo-item', {
-  template: '\
-    <li>\
-      {{ title }}\
-      <button v-on:click="$emit(\'remove\')">Удалить</button>\
-    </li>\
-  ',
-  props: ['title']
-})
+

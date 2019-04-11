@@ -57,11 +57,14 @@
                     <div class="weather__now-city">Казань</div>
                 </div>
             </transition> -->
-            <transition name="slide">
-                <div class="weather__now">
-                    
-                </div>
-            </transition>
+            <weather__list 
+                        v-for="(todo, index) in weather_list" 
+                        v-bind:key="todo.id" 
+                        v-bind:text="todo.text" 
+                        v-bind:day="todo.day"
+            >
+            </weather__list>         
+            
             <div class="weather__other" >
                     <div class="weather_other-tom " v-bind:class="{ choice: show_today }" v-on:click="show_today = true; show_tom=false;show_dat=false" >
                         <img src="image/SVG/rain.svg" class="weather__other-img">
@@ -77,7 +80,7 @@
                     </div>
             </div>
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        <script src="js/vue.min.js"></script>
         <script src="js/axios.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/scripts.js"></script>
