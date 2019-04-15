@@ -6,19 +6,15 @@
     margin: 0;
 }
 html{
-    height: 100%; 
+    height: 100%vh; 
 }
 body{
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     background-color: #21a5da;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    /* align-content: stretch; */
-    height: 100%;
-    min-height: 100%;
+    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden
 }
 img{
@@ -31,10 +27,10 @@ header{
     line-height: 50px;
     text-align: center;
     font-size: 13.06px;
- /*   margin-bottom: 30px;*/
+    margin-bottom: 30px;
 }
 main{
-    height: 100%; 
+    height: 100vh; 
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -44,24 +40,26 @@ main{
    /* min-height: 100%; */
 }
 .weather__now{
-    height: 100%;
+   /* height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center;*/
+    
 }
 .weather__now-text{
     font-size: 24px;
     font-weight: 300;
     padding: 0 20px;
     text-transform: capitalize;
+    margin-bottom: 20px;
 }
 .weather__now-block{
     width: 127px;
     background-color: #60bee5;
     box-shadow: 0 0 0 12px #50b8e2, 0 0 0 24px #3fb1df, 0 0 0 36px #30abdd;
     border-radius: 50%;
- /*   margin: 60px auto 49px; */
+    margin: 60px auto 49px; 
     padding: 19px 19px 5px 19px;
 } 
 .weather__now-block .weather__now-image{
@@ -71,7 +69,7 @@ main{
 .weather__now-temp{
     font-size: 38px;
     font-weight: 300;   
-   /* margin-bottom: 17px; */
+    margin-bottom: 17px; 
 }
 .weather__now-temp-grad{
     font-size: 112px;
@@ -83,7 +81,7 @@ main{
 .weather__now-city{
     font-size: 19px;
     font-weight: 300;   
-    /*margin-bottom: 116px;*/
+    margin-bottom: 116px;
 }
 .weather__other{
     display: flex;

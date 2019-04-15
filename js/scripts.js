@@ -122,7 +122,7 @@ var app = new Vue({
         getImage: function(text){
             var now = new Date();
             var hour=now.getHours()+1;
-            if(hour>21 && hour<6){
+            if(hour>19 || hour<6){
                 return text+" night";
             }
             else{
