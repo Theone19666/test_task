@@ -1,46 +1,44 @@
-/*slides*/
 .slide-enter-active {
-  opacity: 1;
+position: absolute;
+    opacity: 1; 
   -ms-filter: none;
   filter: none;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
-  transition: all 3s ease-in-out;
+  transition: all 1s ease;
 }
 .slide-leave-active {
-  position: relative;
-    /*position: relative;*/
-  opacity: 0;
+    position: absolute;
+  opacity: 0; 
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
-  transition: all 3s ease-in-out;
+  transition: all 1s ease;
 }
 .slide-enter {
-  position: relative;
-  opacity: 1;
+  position: absolute;
+  opacity: 1; 
   -ms-filter: none;
   filter: none;
   -webkit-transform: translate(200%, 0);
   -moz-transform: translate(200%, 0);
   -o-transform: translate(200%, 0);
   -ms-transform: translate(200%, 0);
-  transform: translate(200%, 0);
+  transform: translate(1000%, 0);
 }
 .slide-leave-to {
-  position: relative;
-    /*position: relative;*/
+    position: absolute;
   -webkit-transform: translate(-200%, 0);
   -moz-transform: translate(-200%, 0);
   -o-transform: translate(-200%, 0);
   -ms-transform: translate(-200%, 0);
-  transform: translate(-200%, 0);
-  opacity: 0;
+  transform: translate(-1000%, 0);
+    opacity: 0; 
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }

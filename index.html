@@ -12,51 +12,53 @@
         <main id="app">
             <header>
                 <transition name="slide">
-                    <div id="header_today" class="header__today" v-if="show_today">
+                    <div id="header_today" class="header__today" v-show="show_today">
                         Сегодня, {{weather_list[0].day}} {{weather_list[0].month}} {{weather_list[0].year}} {{weather_list[0].today}}
                     </div>
                 </transition>
                 <transition name="slide">
-                    <div id="header_tom" class="header__tom" v-if="show_tom">
+                    <div id="header_tom" class="header__tom" v-show="show_tom">
                         Завтра, {{weather_list[1].day}} {{weather_list[1].month}} {{weather_list[1].year}}
                     </div>
                 </transition>
                 <transition name="slide">
-                    <div id="header_aft" class="header__daf" v-if="show_dat">
+                    <div id="header_aft" class="header__daf" v-show="show_dat">
                         Послезавтра, {{weather_list[2].day}} {{weather_list[2].month}} {{weather_list[2].year}}
                     </div>
                 </transition>
             </header>
-           <transition name="slide">
-                <div class="weather__now" v-show="show_today">
-                    <div class="weather__now-text" >{{weather_list[0]['text']}}</div>
-                    <div class="weather__now-block">
-                        <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[0].image+'.svg'" >
+            <div class="wrapper">
+               <transition name="slide">
+                    <div class="weather__now" v-show="show_today">
+                        <div class="weather__now-text" >{{weather_list[0]['text']}}</div>
+                        <div class="weather__now-block">
+                            <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[0].image+'.svg'" >
+                        </div>
+                        <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[0]['temperature']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
+                        <div class="weather__now-city">{{weather_list[0]["city"]}}</div>
                     </div>
-                    <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[0]['temperature']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
-                    <div class="weather__now-city">{{weather_list[0]["city"]}}</div>
-                </div>
-            </transition>
-            <transition name="slide">
-                <div class="weather__now"  v-show="show_tom">
-                    <div class="weather__now-text" >{{weather_list[1]['text']}}</div>
-                    <div class="weather__now-block">
-                        <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[1].text+'.svg'" >
+                </transition>
+                <transition name="slide">
+                    <div class="weather__now"  v-show="show_tom">
+                        <div class="weather__now-text" >{{weather_list[1]['text']}}</div>
+                        <div class="weather__now-block">
+                            <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[1].text+'.svg'" >
+                        </div>
+                        <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[1]['day']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
+                        <div class="weather__now-city">{{weather_list[1]["city"]}}</div>
                     </div>
-                    <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[1]['day']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
-                    <div class="weather__now-city">{{weather_list[1]["city"]}}</div>
-                </div>
-            </transition>
-            <transition name="slide">
-                <div class="weather__now"  v-show="show_dat">
-                    <div class="weather__now-text">{{weather_list[2]['text']}}</div>
-                    <div class="weather__now-block">
-                        <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[2].text+'.svg'" >
+                </transition>
+                <transition name="slide">
+                    <div class="weather__now"  v-show="show_dat">
+                        <div class="weather__now-text">{{weather_list[2]['text']}}</div>
+                        <div class="weather__now-block">
+                            <img class="weather__now-image" v-bind:src="'./image/SVG/'+ weather_list[2].text+'.svg'" >
+                        </div>
+                        <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[2]['day']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
+                        <div class="weather__now-city">{{weather_list[2]["city"]}}</div>
                     </div>
-                    <div class="weather__now-temp"><span class="weather__now-temp-grad">{{weather_list[2]['day']}}</span><span class="weather__now-temp-C">&ordm;</span></div>
-                    <div class="weather__now-city">{{weather_list[2]["city"]}}</div>
-                </div>
-            </transition> 
+                </transition>
+            </div>
          <!--   <weather__list 
                         v-for="(todo, index) in weather_list" 
                         v-bind:key="todo.id" 

@@ -89,7 +89,7 @@ var app = new Vue({
             }).catch(
                 error => {
                     console.log(error);
-                    alert("Ошибка");
+                    alert("Ошибка соединения с сервером. Пожалуйста, повторите попытку.");
                 }
             );   
         },
