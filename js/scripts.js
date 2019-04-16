@@ -1,5 +1,5 @@
-Vue.component('weather__list', {
-    props: ['text','morn','day','eve','night','img','show_param_name','show','show2','show3'],
+/*Vue.component('weather__list', {
+    props: ['text','morn','day','eve','night','img'],
     template: ' \<transition  name="slide" >\
         \<div class="weather__now">\
             \<div class="weather__now-text">{{ text }}</div>\
@@ -11,7 +11,7 @@ Vue.component('weather__list', {
         \</div>\
     </transition>\
   ',
-})
+})*/
 
 var app = new Vue({
 	el:"#app",
@@ -35,15 +35,11 @@ var app = new Vue({
                           {
                             id: 1,
                             text: weather_data.list[0].weather[0].description,
-                     /*       morn: (weather_data.list[0].temp.morn-273).toFixed(),  
+                            morn: (weather_data.list[0].temp.morn-273).toFixed(),  
                             day: (weather_data.list[0].temp.day-273).toFixed(),
                             eve: (weather_data.list[0].temp.eve-273).toFixed(),
-                            night: (weather_data.list[0].temp.night-273).toFixed(),*/
+                            night: (weather_data.list[0].temp.night-273).toFixed(),
                             temperature: this.getTemperature(),
-                            show_param_name: "show_today",
-                            show: true,
-                            show2: false,
-                            show3: false,
                             city: weather_data.city.name,
                             day: this.getToday().getDate(), 
                             month: app.getToday().toLocaleString('ru', { month: 'long' }), 
@@ -57,10 +53,6 @@ var app = new Vue({
                             day: (weather_data.list[1].temp.day-273).toFixed(),
                             eve: (weather_data.list[1].temp.eve-273).toFixed(),
                             night: (weather_data.list[1].temp.night-273).toFixed(),
-                            show_param_name: "show_tom",
-                            show: false,
-                            show2: true,
-                            show3: false,
                             city: weather_data.city.name,
                             day: this.getTomorrow().getDate(), 
                             month: app.getTomorrow().toLocaleString('ru', { month: 'long' }),
@@ -74,10 +66,6 @@ var app = new Vue({
                             day: (weather_data.list[2].temp.day-273).toFixed(),
                             eve: (weather_data.list[2].temp.eve-273).toFixed(),
                             night: (weather_data.list[2].temp.night-273).toFixed(),
-                            show_param_name: "show_dat",
-                            show:false,
-                            show2: false,
-                            show3: true,
                             city: weather_data.city.name,
                             day: this.getDAT().getDate(), 
                             month: app.getDAT().toLocaleString('ru', { month: 'long' }), 
@@ -145,20 +133,5 @@ var app = new Vue({
                 return (weather_data.list[0].temp.night-273).toFixed();
             }
         }
-  /*      getDay: function(event){
-            var now = new Date();
-            return now.getDate();
-        },
-        getMonth: function(event){
-            var now = new Date();
-            var day = now.getDate();
-            return new Date().toLocaleString('ru', {       
-                    month: 'long'       
-            });       
-        },
-        getYear: function(event){
-            var now = new Date();
-            return now.getFullYear();     
-        }, */
     },
 });
